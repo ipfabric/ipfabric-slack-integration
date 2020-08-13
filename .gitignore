@@ -1,0 +1,7 @@
+.env
+*.log
+*.swp
+*.tgz
+
+.npm/
+node_modules/

@@ -1,0 +1,5 @@
+{
+  "port": 18000,
+  "route": "/webhook",
+  "secret": "patched-super-secret-password"
+}
