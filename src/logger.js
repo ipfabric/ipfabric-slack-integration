@@ -1,5 +1,3 @@
-// --- logging ---
-
 const offset = (
   new Date()
     .getTimezoneOffset() * 60 * 1000
@@ -10,7 +8,7 @@ const now = () => (
     .substr(0, 23)
 );
 
-const log = (...args) => {
+module.exports.log = (...args) => {
   if (args.length) {
     console.log(now(), ...args); // eslint-disable-line no-console
   } else {
@@ -18,9 +16,6 @@ const log = (...args) => {
   }
 };
 
-const logNoTime = (...args) => {
+module.exports.logNoTime = (...args) => {
   console.log(...args); // eslint-disable-line no-console
 };
-
-module.exports.log = log;
-module.exports.logNoTime = logNoTime;

@@ -112,8 +112,8 @@ module.exports = {
       },
     }],
 
-    // parameter list for `function foo(a, b) { ... }` is fine, parameter list for `function foo(a, b, c) { ... }` must be broken into multiple lines
-    'function-paren-newline': ['error', {minItems: 3}],
+    // consistent newline after/before function parens
+    'function-paren-newline': ['error', 'consistent'],
 
     // `arr = [1, 2]` is fine, `arr = [1, 2, 3]` must be broken into multiple lines
     'array-element-newline': ['error', {minItems: 3}],

@@ -9,11 +9,7 @@ const {log} = require('./logger');
 
 // --- webhook-agent ---
 
-const sendResponse = (
-  ctx,
-  code,
-  message,
-) => {
+const sendResponse = (ctx, code, message) => {
   log();
   log(`<<< sending ${code} response`);
   log(` +  ${message}`);
@@ -27,21 +23,13 @@ router.post(config.route, async ctx => {
   log('>>> request received');
   log(` +  method  = ${ctx.request.method}`);
   log(` +  url     = ${ctx.request.url}`);
-  log(` +  headers = ${JSON.stringify(
-    ctx.request.headers,
-    null,
-    2,
-  )}`);
+  log(` +  headers = ${JSON.stringify(ctx.request.headers, null, 2)}`);
   const bodyStr = await getRawBody(ctx.req, {
     length: ctx.headers['content-length'],
     limit: '1mb',
   });
   if (!bodyStr) {
-    return sendResponse(
-      ctx,
-      400,
-      'request body is missing',
-    );
+    return sendResponse(ctx, 400, 'request body is missing');
   }
 
   log();
@@ -50,33 +38,17 @@ router.post(config.route, async ctx => {
   const verified = (hmac.digest('hex') === ctx.request.headers['x-ipf-signature']);
   log(`=== payload verified: ${verified}`);
   if (!verified) {
-    return sendResponse(
-      ctx,
-      400,
-      'payload signature is not matching',
-    );
+    return sendResponse(ctx, 400, 'payload signature is not matching');
   }
 
   let body;
   try {
     body = JSON.parse(bodyStr);
   } catch (e) {
-    return sendResponse(
-      ctx,
-      400,
-      'cannot parse request body',
-    );
+    return sendResponse(ctx, 400, 'cannot parse request body');
   }
-  log(`=== parsed body: ${JSON.stringify(
-    body,
-    null,
-    2,
-  )}`);
-  sendResponse(
-    ctx,
-    200,
-    'OK',
-  );
+  log(`=== parsed body: ${JSON.stringify(body, null, 2)}`);
+  sendResponse(ctx, 200, 'OK');
 
   // payload is valid, response has been sent, now it's time to handle the data
   // data is processed asynchronously, as we do not want to block sending 200 OK back
@@ -91,5 +63,5 @@ router.post(config.route, async ctx => {
 app.use(router.routes());
 
 app.listen(config.port, () => {
-  log(`*** webhook agent ready, listening on port ${config.port}`);
+  log(`*** webhook agent ready, listening on :${config.port}${config.route}`);
 });

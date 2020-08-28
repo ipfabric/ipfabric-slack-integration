@@ -1,5 +1,11 @@
 {
   "port": 18000,
   "route": "/webhook",
-  "secret": "patched-super-secret-password"
+
+  "secret": "<< here comes your IPF webhook secret >>",
+  "ipfApi": "<< here comes the URL of the IPF API server, e.g. http://localhost:8100 >>",
+  "ipfToken": "<< here comes IPF API token for fetching event details >>",
+
+  "slackChannel": "<< here comes the name of the public Slack channel >>",
+  "slackToken": "<< here comes Slack API Token for sending messages to the above channel >>"
 }
