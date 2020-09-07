@@ -4,8 +4,15 @@
   "main": "src/agent.js",
   "author": "Roman Kaspar <roman.kaspar@ipfabric.io>",
   "license": "MIT",
+  "engines": {
+    "node": ">=12"
+  },
+  "pre-commit": [
+    "lint:staged"
+  ],
   "scripts": {
     "lint": "eslint src",
+    "lint:staged": "./lint-staged.sh",
     "start": "node src/agent.js",
     "start:dev": "nodemon -w src"
   },
@@ -22,6 +29,7 @@
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "pre-commit": "^1.2.2"
   }
 }
