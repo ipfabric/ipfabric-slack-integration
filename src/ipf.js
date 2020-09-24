@@ -13,6 +13,8 @@ module.exports.fetch = async path => {
       log(' !  fetching failed with ERROR: no response / data');
       return null;
     }
+    log(` +  got response (type = ${typeof resp.data === 'string' ? 'text' : 'JSON'})`);
+    log(` +  response data (first 100 chars): ${(typeof resp.data === 'string' ? resp.data : JSON.stringify(resp.data)).substr(0, 100)}`);
     return resp.data;
   } catch (e) {
     log(` !  fetching failed with ERROR: ${e.message}`);
