@@ -1,6 +1,7 @@
 {
   "port": 18000,
-  "route": "/webhook",
+  "routeWebhook": "/webhook",
+  "routeChatbot": "/chatbot",
 
   "secret": "<< here comes your IPF webhook secret >>",
   "ipfApi": "<< here comes the URL of the IPF API server, e.g. http://localhost:8100 >>",

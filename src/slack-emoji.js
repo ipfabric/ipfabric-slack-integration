@@ -18,3 +18,10 @@ module.exports.typeEmoji = {
   'intent-verification': ':pencil:',
   snapshot: ':man_dancing:',
 };
+
+module.exports.resultEmoji = {
+  failed: ':sob:',
+  finished: ':tada:',
+  success: ':woman-running:',
+  zero: ':cry:',
+};

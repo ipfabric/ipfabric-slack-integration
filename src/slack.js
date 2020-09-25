@@ -1,3 +1,4 @@
+const axios = require('axios');
 const Bluebird = require('bluebird');
 const slack = require('slack');
 
@@ -73,4 +74,9 @@ module.exports.toItalics = str => {
     return str.trim();
   }
   return `_${str.trim()}_`;
+};
+
+// send a response to Slack
+module.exports.postSlackResponse = async (url, body) => {
+  await axios.post(url, body);
 };

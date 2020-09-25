@@ -1,6 +1,6 @@
-const {reportHandler} = require('./handler-intent_verification-calculate');
-const {discoveryHandler} = require('./handler-snapshot-discover');
-const {testHandler} = require('./handler-test');
+const {reportHandler} = require('./handler-wh-intent_verification-calculate');
+const {discoveryHandler} = require('./handler-wh-snapshot-discover');
+const {testHandler} = require('./handler-wh-test');
 const {log} = require('./logger');
 
 module.exports.handler = async data => {
@@ -13,7 +13,7 @@ module.exports.handler = async data => {
   } else if (data.type === 'intent-verification') {
     await reportHandler(data);
   } else {
-    log(' ?  no handler matching the webhook data, ignoring');
+    log(' !  no handler matching the webhook data, ignoring');
   }
   log('*** webhook handler: end');
 };

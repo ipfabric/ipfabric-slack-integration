@@ -1,6 +1,6 @@
 {
   "name": "demo-webhook-apitoken-slack",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "src/agent.js",
   "author": "Roman Kaspar <roman.kaspar@ipfabric.io>",
   "license": "MIT",
