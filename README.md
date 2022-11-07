@@ -1,3 +1,6 @@
+# THIS REPO IS NOW ARCHIVED!
+HEAD TO https://github.com/community-fabric FOR UPDATED REPOS OR https://github.com/community-fabric/awesome-ipfabric-list FOR IP FABRIC RELATED LINKS
+
 ## Webhook Worker / testing webhook agent
 
 In this directory you can find a simple webhook agent (receiver) that you can use for testing the webhook sub-system
